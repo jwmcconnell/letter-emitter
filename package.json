@@ -4,8 +4,8 @@
   "description": "Emits an event for each letter in a string.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:watch": "nodemon index.js",
+    "start": "node letter-emitter.js",
+    "start:watch": "nodemon letter-emitter.js",
     "test": "jest --verbose --runInBand",
     "test:watch": "npm run test -- --watch"
   },
