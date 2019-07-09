@@ -9,7 +9,7 @@ describe('Letter Emitter', () => {
       expect(data.letter).toEqual(str[data.offset]);
     });
 
-    letterEmitter.on('end', () => {
+    letterEmitter.once('end', () => {
       done();
     });
 
