@@ -5,11 +5,15 @@ describe('Letter Emitter', () => {
     const str = 'Hello my name is Jack';
     const letterEmitter = new LetterEmitter();
 
+    const mockFunction = jest.fn();
+
     letterEmitter.on('letter', data => {
+      mockFunction();
       expect(data.letter).toEqual(str[data.offset]);
     });
 
     letterEmitter.once('end', () => {
+      expect(mockFunction.mock.calls.length).toBe(21);
       done();
     });
 
