@@ -9,7 +9,7 @@ class LetterEmitter extends EventEmitter {
   read(str) {
     str.split('').forEach((letter, i) => {
       this.emit('letter', { letter, offset: i });
-      if(this.arr && this.arr.includes(letter)) this.emit(letter.toString);
+      if(this.arr && this.arr.includes(letter)) this.emit(letter.toString());
     });
 
     this.emit('end');

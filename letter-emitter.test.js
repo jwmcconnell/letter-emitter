@@ -8,10 +8,12 @@ describe('Letter Emitter constructor', () => {
   });
 
   it('emits an event for each letter in an array passed to the constructor', done => {
-    le.on('a', () => console.log('a found'));
-    le.on('b', () => console.log('b found'));
+    const mockFunction = jest.fn();
+
+    le.on('a', () => mockFunction());
+    le.on('b', () => mockFunction());
     le.on('end', () => {
-      console.log('done');
+      expect(mockFunction.mock.calls.length).toBe(7);
       done();
     });
 
@@ -29,12 +31,7 @@ describe('Letter Emitter read method', () => {
   it('emits a letter event for each letter/space in a string', done => {
     const str = 'Hello my name is Jack';
 
-
     const mockFunction = jest.fn();
-
-    letterEmitter.on('test', () => {
-      console.log('constructor is working');
-    });
 
     letterEmitter.on('letter', data => {
       mockFunction();
